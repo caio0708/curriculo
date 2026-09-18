@@ -1,0 +1,178 @@
+% Copyright (c) 2026 Caio Terencio. All rights reserved.
+%
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+
+\documentclass[a4paper,10pt]{article}
+
+% --- PACKAGES: BASE / LANGUAGE ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% --- PACKAGES: LAYOUT / TYPOGRAPHY ---
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+% --- PACKAGES: LINKS / BOOKMARKS ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+
+% --- CONFIGURATION: MARGINS / SPACING ---
+\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
+\setcounter{secnumdepth}{0}
+
+\setlist[itemize]{
+    leftmargin=0.75em,
+    itemsep=0.2em,
+    topsep=0.25em,
+    parsep=0em,
+    partopsep=0em
+}
+
+% Remove page numbers and headers for a clean resume layout
+\pagestyle{empty}
+
+% --- CONFIGURATION: METADATA / LINKS ---
+\hypersetup{
+    pdftitle={CV Caio Terencio},
+    pdfauthor={Caio Terencio Trindade Ribeiro},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black,
+    bookmarksdepth=2
+}
+
+% --- CONFIGURATION: SECTION TITLES ---
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{}
+[\titlerule\vspace{0.5ex}]
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{}
+{0em}
+{}
+
+\titlespacing*{\subsection}{0pt}{0.35em}{0.15em}
+
+% Macro for resume entries with PDF bookmarks
+% Optimized for ATS - Linear Layout
+\newcounter{cventry}
+\newcommand{\cventry}[4]{%
+    \refstepcounter{cventry}%
+    \phantomsection%
+    \pdfbookmark[2]{#1}{cventry-\thecventry}%
+    {\noindent\textbf{#1} \hfill #2\par}
+    {\noindent\textit{#3} \hfill \textit{#4}\par}
+    \vspace{0.2em}
+}
+
+% --- DOCUMENT START ---
+\begin{document}
+
+% --- HEADER ---
+\begin{center}
+    {\LARGE \textbf{Caio Terencio Trindade Ribeiro}}
+    \\ [0.1cm]
+    São Paulo, SP, Brazil
+    {\textbullet}
+    \href{mailto:caioterencio@gmail.com}{caioterencio@gmail.com}
+    {\textbullet}
+    \href{https://linkedin.com/in/caioterencio}{linkedin.com/in/caioterencio}
+    {\textbullet}
+    \href{https://github.com/caio0708}{github.com/caio0708}
+\end{center}
+
+% --- PROFESSIONAL SUMMARY ---
+\section{Professional Summary}
+
+Control and Automation Engineer with over 2 years of hands-on experience developing solutions that integrate software, hardware, IoT, and artificial intelligence. Experienced in hyperautomation using n8n, AI agent development with LLMs, REST APIs, and Python back-end development. Additional experience with ESP32, sensors, electronics, and IoT solutions, as well as RPA and Machine Learning applied to process and operational optimization.
+
+% --- SECTIONS ---
+
+\section{Professional Experience}
+
+    \cventry{ABMIX}{São Paulo, SP (Remote)}{Automation Analyst}{Dec 2025 - Present}
+        \begin{itemize}
+            \item Architect and manage hyperautomation workflows using n8n, implementing robust data handling to prevent execution failures caused by null parameters in system integrations.
+            \item Develop AI agents and advanced chatbots using LLMs and state machines for intelligent request routing, reducing unnecessary escalations to human support.
+            \item Create automated workflows for lead generation, qualification, and nurturing, connecting multiple platforms through REST API integrations.
+            \item Structure management environments in ClickUp, developing dynamic dashboards and monitoring panels to analyze qualified leads and campaign churn.
+            \item Implement Robotic Process Automation (RPA) solutions for the automated extraction of business data and payment slips.
+        \end{itemize}
+
+    \cventry{Siemens Healthineers}{São Paulo, SP (Hybrid)}{Advanced Therapies Intern}{May 2024 - Nov 2025}
+        \begin{itemize}
+            \item Programmed and scheduled demonstration equipment.
+            \item Supported product configuration, pricing, and presentation activities.
+            \item Assisted in the preparation of technical proposals for public tenders and item registration in SAP.
+            \item Supported market intelligence activities and analysis of competitor reports.
+            \item Provided support for special projects, trade shows, conferences, and marketing material development.
+        \end{itemize}
+
+% ------
+
+\section{Education}
+
+    \cventry{FIAP}{São Paulo, SP}{Postgraduate Certificate in Machine Learning Engineering}{Jan 2026 - 2027}
+
+    \cventry{Instituto Mauá de Tecnologia}{São Caetano do Sul, SP}{B.Sc. in Control and Automation Engineering}{Jan 2021 - Dec 2025}
+
+% ------
+
+\section{Academic Experience and Projects}
+
+    \cventry{Instituto Mauá de Tecnologia}{São Caetano do Sul, SP}{Undergraduate Researcher}{Jan 2023 - Dec 2023}
+        \begin{itemize}
+            \item Developed a Python mobile application using Kivy for real-time telemetry monitoring of logistics packages used in organ transplantation.
+            \item Programmed ESP32 firmware integrating data acquisition through MQTT and the Node-RED platform.
+            \item Winner of the ABINC IoT Award in the Academic category at Futurecom 2024.
+        \end{itemize}
+
+    \cventry{GCSP (Grand Challenges Scholars Program) - IMT}{São Caetano do Sul, SP}{Grand Challenges Scholar - Diamond}{Jan 2023 - Dec 2025}
+        \begin{itemize}
+            \item Received a Commendation Letter from the National Academy of Engineering (NAE), United States, in recognition of completing the Diamond level of the GCSP and developing the program's five competencies: technical-creativity, multidisciplinary skills, entrepreneurship, multicultural awareness, and social consciousness.
+        \end{itemize}
+
+    \cventry{Independent and Personal Projects}{São Paulo, SP}{Full-Stack Developer and IoT Engineer}{Jan 2026 - Present}
+        \begin{itemize}
+            \item Develop full-stack websites and applications using React, TypeScript, and back-end technologies, integrating REST APIs for interactive platforms and continuous monitoring systems.
+            \item Engineered and implemented a customized sports replay system for sports arenas, enabling play recording and video streaming, hosted on a VPS and fully managed through a Flask-based API.
+            \item Integrated IP camera media streams using RTSP and RTMP protocols, enabling real-time capture, continuous recording of structured replays, and live streaming initiation.
+            \item Automated security infrastructures by integrating computer vision for automatic license plate recognition (LPR).
+            \item Develop hardware and IoT projects, prototyping electronic components and creating firmware for Arduino-based devices and microcontrollers.
+        \end{itemize}
+
+    \cventry{Instituto Mauá de Tecnologia}{São Caetano do Sul, SP}{Undergraduate Thesis - Machine Learning Wearable Device}{Jan 2025 - Dec 2025}
+        \begin{itemize}
+            \item Developed a predictive wearable system using ESP32 to monitor physiological signals (SpO2 and heart rate) and environmental factors in real time.
+            \item Implemented Machine Learning models (Random Forest and Decision Tree) and acoustic analysis using TensorFlow (YAMNet) for asthma attack prediction.
+            \item Designed an MQTT-based telemetry architecture and developed a web interface using Flask, HTML, CSS, and JavaScript.
+            \item Integrated an LLM-powered virtual assistant using Google Gemini and a RAG architecture to provide personalized recommendations to patients.
+        \end{itemize}
+
+% ------
+
+\section{Skills}
+
+    \begin{itemize}
+        \item \textbf{Software and Web Development:} Python, TypeScript, JavaScript, React, SQL, HTML, CSS, Flask, Kivy, Supabase, Front-end, Back-end, FastAPI, APIs.
+        \item \textbf{AI, Data and Computer Vision:} LLMs (OpenAI, Gemini, Ollama, Claude), AI Agents, RAG, Machine Learning, LPR, TensorFlow, Power BI.
+        \item \textbf{Engineering, IoT and Automation:} n8n, Arduino, ESP32, Arduino IDE, MQTT, Node-RED, SolidWorks, RPA, Git, Docker, ClickUp, CodeSys.
+        \item \textbf{Languages:} Portuguese (Native), English (Advanced), Spanish (Basic).
+    \end{itemize}
+
+\end{document}
