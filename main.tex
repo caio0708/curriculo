@@ -1,0 +1,177 @@
+% Copyright (c) 2026 Caio Terencio. All rights reserved.
+% 
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+
+% Início do documento LaTeX: define tipo e formato do documento
+% a4paper = tamanho A4, 10pt = tamanho base da fonte
+\documentclass[a4paper,10pt]{article}
+
+% --- PACOTES: BASE / IDIOMA ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+
+% --- PACOTES: LAYOUT / TIPOGRAFIA ---
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+% Os pacotes array e tabularx foram removidos para evitar problemas de parsing em ATS
+
+% --- PACOTES: LINKS / BOOKMARKS ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+
+% --- CONFIGURAÇÃO: MARGENS / ESPAÇAMENTO ---
+\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm} % Margens da página
+\setcounter{secnumdepth}{0}                                 % Remove numeração de seção
+\setlist[itemize]{
+    leftmargin=0.75em, % Recuo da lista (mais perto da margem da página)
+    itemsep=0.2em,     % Espaço entre itens
+    topsep=0.25em,     % Espaço antes/depois da lista
+    parsep=0em,        % Espaço entre parágrafos no mesmo item
+    partopsep=0em      % Espaço extra ao iniciar a lista
+}
+
+% Remove números de página e cabeçalhos para visual limpo do currículo
+\pagestyle{empty}
+
+% --- CONFIGURAÇÃO: METADADOS / LINKS ---
+\hypersetup{
+    pdftitle={CV Caio Terencio}, % Título do PDF
+    pdfauthor={Caio Terencio Trindade Ribeiro}, % Autor do PDF
+    colorlinks=true,          % Usa cor nos links (sem caixa)
+    linkcolor=black,          % Cor de links internos
+    urlcolor=black,           % Cor de URLs
+    citecolor=black,          % Cor de citações
+    bookmarksdepth=2          % Barra lateral: seção e subseção
+}
+
+% --- CONFIGURAÇÃO: TÍTULOS ---
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{}
+[\titlerule\vspace{0.5ex}]
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{}
+{0em}
+{}
+\titlespacing*{\subsection}{0pt}{0.35em}{0.15em}
+
+% Macro para entradas do currículo com bookmark no PDF (Otimizado para ATS - Layout Linear)
+\newcounter{cventry}
+\newcommand{\cventry}[4]{%
+    \refstepcounter{cventry}%
+    \phantomsection%
+    \pdfbookmark[2]{#1}{cventry-\thecventry}%
+    {\noindent\textbf{#1} \hfill #2\par}
+    {\noindent\textit{#3} \hfill \textit{#4}\par}
+    \vspace{0.2em}
+}
+
+% --- INÍCIO DO DOCUMENTO ---
+\begin{document}
+
+% --- CABEÇALHO ---
+\begin{center}
+    {\LARGE \textbf{Caio Terencio Trindade Ribeiro}} 
+    \\ [0.1cm]
+    São Paulo, SP
+    {\textbullet}
+    \href{mailto:caioterencio@gmail.com}{caioterencio@gmail.com} 
+    {\textbullet}
+    \href{https://linkedin.com/in/caioterencio}{linkedin.com/in/caioterencio} 
+    {\textbullet}
+    \href{https://github.com/caio0708}{github.com/caio0708}
+\end{center}
+
+% --- RESUMO PROFISSIONAL ---
+\section{Resumo Profissional}
+Engenheiro de Controle e Automação com mais de 2 anos de experiência prática no desenvolvimento de soluções integrando software, hardware, IoT e inteligência artificial Experiência com hiperautomação utilizando n8n, desenvolvimento de agentes de IA (LLMs), APIs REST e back-end em Python. Também possuo experiência com ESP32, sensores, eletrônica e soluções IoT além de RPA e Machine Learning aplicados à otimização de processos e operações.
+
+
+
+% --- SEÇÕES ---
+
+\section{Experiência Profissional}
+    
+    \cventry{ABMIX}{São Paulo, SP (Remoto)}{Analista de Automações}{Dez 2025 - Presente}
+        \begin{itemize}
+            \item Arquitetura e gestão de hiperautomações utilizando n8n, implementando tratamento robusto de dados para evitar falhas de execução por parâmetros nulos em integrações sistêmicas.
+            \item Desenvolvimento de agentes de IA e chatbots avançados, empregando LLMs e máquinas de estado para roteamento inteligente de requisições, minimizando escalonamentos desnecessários para o atendimento humano.
+            \item Criação de fluxos automatizados para captação, qualificação e nutrição de leads, conectando plataformas diversas através do consumo de APIs REST.
+            \item Estruturação de ambientes de gestão no ClickUp, desenvolvendo dashboards dinâmicos e painéis de monitoramento para análise de leads qualificados e churn de campanhas.
+            \item Implementação de soluções de RPA (Robotic Process Automation) para extração automatizada de dados e boletos comerciais.
+        \end{itemize}
+
+    \cventry{Siemens Healthineers}{São Paulo, SP (Híbrido)}{Estagiário - Terapias Avançadas}{Mai 2024 - Nov 2025}
+        \begin{itemize}
+            \item Programação e agendamento de equipamentos de demonstração.
+            \item Suporte na configuração e precificação de produtos e apoio a apresentações.
+            \item Auxílio na elaboração de propostas técnicas para licitações e cadastro de itens no SAP.
+            \item Auxílio em atividades de inteligência de mercado e análise de relatórios da concorrência.
+            \item Suporte em projetos especiais, feiras, congressos e desenvolvimento de materiais de marketing.
+        \end{itemize}
+
+% ------
+
+\section{Educação}
+    
+    \cventry{FIAP}{São Paulo, SP}{Pós Graduação em Machine Learning Engineering}{Jan 2026 - 2027}
+    
+    \cventry{Instituto Mauá de Tecnologia}{São Caetano do Sul, SP}{Bacharelado em Engenharia de Controle e Automação}{Jan 2021 - Dez 2025}
+
+% ------
+
+\section{Experiência Acadêmica e Projetos}
+
+    \cventry{Instituto Mauá de Tecnologia}{São Caetano do Sul, SP}{Iniciação Científica - Pesquisador}{Jan 2023 - Dez 2023}
+        \begin{itemize}
+            \item Desenvolvi um aplicativo móvel em Python utilizando Kivy para monitoramento de telemetria em tempo real de embalagens logísticas de transplantes.
+            \item Programei firmware de ESP32 integrando aquisição de dados via MQTT e plataforma Node-RED.
+            \item Vencedor do prêmio ABINC de IoT na categoria acadêmica durante a conferência Futurecom 2024.
+        \end{itemize}
+
+    \cventry{GCSP (Grand Challenges Scholars Program) - IMT}{São Caetano do Sul, SP}{Grand Challenges Scholar - Diamond}{Jan 2023 - Dez 2025}
+        \begin{itemize}
+            \item Recebi a Carta de Comenda da National Academy of Engineering (NAE), dos Estados Unidos, em reconhecimento à conclusão do nível Diamond do GCSP e ao desenvolvimento das cinco competências do programa: técnico-criativa, multidisciplinar, empreendedorismo, multicultural e consciência social.
+        \end{itemize}
+
+    \cventry{Projetos Independentes e Pessoais}{São Paulo, SP}{Desenvolvedor Full-Stack e Engenheiro IoT}{Jan 2026 - Presente}
+    \begin{itemize}
+        \item Desenvolvimento de sites e aplicações full-stack (React, TypeScript e back-end), integrando APIs REST para plataformas interativas e sistemas de monitoramento contínuo.
+        \item Engenharia e implementação de um sistema de replay para arenas esportivas customizado para gravação de lances e transmissões de vídeo, hospedado em servidor VPS e gerenciado integralmente por uma API estruturada em Flask.
+        \item Integração de fluxos de mídia de câmeras IP através dos protocolos RTSP e RTMP, permitindo a captura em tempo real, gravação contínua de replays estruturados e a inicialização de transmissões ao vivo.
+        \item Automação de infraestruturas de segurança integrando visão computacional para o reconhecimento automático de placas de veículos (LPR).
+        \item Projetos focados em Hardware e IoT, prototipando componentes eletrônicos e desenvolvendo firmware para dispositivos e microcontroladores Arduino.
+    \end{itemize}
+
+\cventry{Instituto Mauá de Tecnologia}{São Caetano do Sul, SP}{Trabalho de Conclusão de Curso - Dispositivo Wearable com Machine Learning}{Jan 2025 - Dez 2025}
+    \begin{itemize}
+        \item Desenvolvimento de sistema vestível preditivo com ESP32 para monitoramento de sinais fisiológicos (SpO2, frequência cardíaca) e fatores ambientais em tempo real.
+        \item Implementação de modelos de Machine Learning (Random Forest, Árvore de Decisão) e análise acústica com TensorFlow (YAMNet) para predição de crises asmáticas.
+        \item Criação de arquitetura de telemetria via protocolo MQTT e desenvolvimento de interface web utilizando Flask, HTML, CSS e JavaScript.
+        \item Integração de assistente virtual com LLM (Google Gemini) baseado em arquitetura RAG para fornecer recomendações personalizadas ao paciente.
+    \end{itemize}
+
+% ------
+
+\section{Habilidades}
+    \begin{itemize}
+        \item \textbf{Desenvolvimento Web e Software:} Python, TypeScript, JavaScript, React, SQL, HTML, CSS, Flask, Kivy, Supabase, Front-end, Back-end, FastAPI, APIs.
+        \item \textbf{IA, Dados e Visão Computacional:} LLMs (OpenAI, Gemini, Ollama, Claude), Agentes de IA, RAG, Machine Learning, LPR, TensorFlow, Power BI.
+        \item \textbf{Engenharia, IoT e Automação:} n8n, Arduino, ESP32, Arduino IDE, MQTT, Node-RED, SolidWorks, RPA, Git, Docker, ClickUp, CodeSys.
+        \item \textbf{Idiomas:} Português (Nativo), Inglês (Avançado), Espanhol (Básico).
+    \end{itemize}
+
+\end{document}
